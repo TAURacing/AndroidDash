@@ -3,6 +3,7 @@
 
     <string name="app_name">dashboard</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="oil_title">Oil Level:</string>
+    <string name="rpm_title">RPM:</string>
 
 </resources>

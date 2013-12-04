@@ -9,8 +9,40 @@
     tools:context=".MainActivity" >
 
     <TextView
+        android:id="@+id/rpm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/oil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/rpmTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/rpm"
+        android:layout_marginRight="74dp"
+        android:layout_toLeftOf="@+id/rpm"
+        android:text="@string/rpm_title"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/oilTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/rpmTitle"
+        android:layout_alignTop="@+id/oil"
+        android:text="@string/oil_title"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
