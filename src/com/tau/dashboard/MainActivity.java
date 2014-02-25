@@ -6,6 +6,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.view.Menu;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 /**
@@ -20,6 +22,10 @@ public class MainActivity extends Activity {
 
 	private TextView rpmDisp;
 	private TextView oilDisp;
+	private TextView gearDisplay;
+	private TextView batteryDisplay;
+	private TextView lambdaDisplay;
+	private TextView coolantDisplay;
 
 	/*
 	 * Handler connected to main thread (thread for UI handling), belongs to
@@ -51,14 +57,32 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		//update:15/02/2014 -> hide title bar
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		//update:15/02/2014 -> hide status bar
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+	            WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		
 		setContentView(R.layout.activity_main);
 
+		gearDisplay = (TextView) findViewById(R.id.gear);
+		gearDisplay.setText("gear_S");
+			
 		rpmDisp = (TextView) findViewById(R.id.rpm);
-		rpmDisp.setText("--");
+		rpmDisp.setText("rpm_S");
 
 		oilDisp = (TextView) findViewById(R.id.oil);
-		oilDisp.setText("--");
-
+		oilDisp.setText("eot_S");
+		
+		batteryDisplay = (TextView) findViewById(R.id.battery);
+		batteryDisplay.setText("vbat_S");
+		
+		lambdaDisplay = (TextView) findViewById(R.id.lambda);
+		lambdaDisplay.setText("lam1_S");
+		
+		coolantDisplay = (TextView) findViewById(R.id.coolant);
+		coolantDisplay.setText("ect1_S");
+		
 		UdpReceive sync = new UdpReceive(mainHandler);
 		new Thread(sync).start();
 	}
